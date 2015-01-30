@@ -86,6 +86,10 @@ scripts:
 0.
 /etc/init.d/git-daemon
 
+PIDFILE=something
+BASEPATH=something
+LOGFILE=something
+
 start() {
 	[ -e /lib/librc.so ] || BL1_COMPAT="--name git-daemon"
 	ebegin "Starting git-daemon"
