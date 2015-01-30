@@ -1,6 +1,6 @@
 
 it is a strange story...
-after setting up a hg repo on a linux based server throught apache,
+after setting up a hg repo on a linux based server through apache,
 i was asked to set up a git repo for developers needs.
 It is important to point out that I was newbie in git.
 
