@@ -80,3 +80,36 @@ http://stackoverflow.com/questions/5520329/why-does-a-git-push-just-hang-there-i
 
 10. advise
 http://eax.me/git-commands/
+
+scripts:
+
+1.
+
+#!/bin/bash
+
+#git daemon --verbose \
+#	    --pid-file=/var/run/git-daemon.pid \
+#	    --user=apache \
+#	    --group=apache \
+#	    --informative-errors \
+#	    --enable=receive-pack \
+#	    /srv/repository/paraview-git \
+#	    > /var/log/git/paraview-git.log 2>&1 &
+#	    
+git daemon --verbose --base-path=/srv/repository/git --enable=receive-pack --pid-file=/var/run/git-daemon.pid --informative-errors >/var/log/git/paraview-git.log 2>&1 &
+
+2.
+
+
+#create git-daemon-export-ok
+#redirect output to (log) - foo > allout.txt 2>&1
+
+ git-daemon --verbose \
+			--pid-file=/var/run/git-daemon.pid \
+			--listen=127.0.21.10 \
+			--port=8000 \
+			--user=apache \
+			--group=apache \
+			/srv/repository/paraview-git \
+			>/var/log/git/paraview-git.log 2>&1 \
+			
