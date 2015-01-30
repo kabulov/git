@@ -83,6 +83,36 @@ http://eax.me/git-commands/
 
 scripts:
 
+0.
+/etc/init.d/git-daemon
+
+start() {
+	[ -e /lib/librc.so ] || BL1_COMPAT="--name git-daemon"
+	ebegin "Starting git-daemon"
+		#start-stop-daemon --start --verbose --background \
+		#--pidfile ${PIDFILE} ${BL1_COMPAT} \
+		#--exec /usr/bin/git -- daemon \
+		#	--pid-file=${PIDFILE} \
+		#	--user=${GIT_USER} --group=${GIT_GROUP} \
+		#	${GITDAEMON_OPTS}
+		
+		start-stop-daemon --start --verbose --background \
+		--pidfile ${PIDFILE} ${BL1_COMPAT} \
+		--stderr ${LOGFILE} \
+		--stdout ${LOGFILE} \
+		--exec /usr/bin/git -- daemon \
+		    --pid-file=${PIDFILE} \
+		    --base-path=${BASEPATH} \
+		    --enable=receive-pack \
+		    --informative-errors \
+		    --verbose
+		
+		#echo "start paraview-new daemon"
+		#git daemon --verbose --base-path=/srv/repository/git --enable=receive-pack --pid-file=/var/run/git-daemon.pid --infromative-errors >/var/log/git/paraview-git.log 2>&1 &
+		#echo "done"
+	eend $?
+}
+
 1.
 
 #!/bin/bash
@@ -99,7 +129,6 @@ scripts:
 git daemon --verbose --base-path=/srv/repository/git --enable=receive-pack --pid-file=/var/run/git-daemon.pid --informative-errors >/var/log/git/paraview-git.log 2>&1 &
 
 2.
-
 
 #create git-daemon-export-ok
 #redirect output to (log) - foo > allout.txt 2>&1
