@@ -66,5 +66,17 @@ http://git-scm.com/book/ru/v1/Git-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1
 7. git daemon man page
 http://git-scm.com/docs/git-daemon
 
+8. how to set up a git repo - general advise
+http://codebyexample.info/2012/09/14/how-to-setup-a-git-daemon/
 
+9. git push hangs !!!
+https://github.com/msysgit/git/issues/101#issuecomment-29885687
+http://billauer.co.il/blog/2012/10/git-pull-windows-freeze-receive-pack/
+https://github.com/msysgit/git/blob/master/send-pack.c
+https://github.com/msysgit/git/issues/101
+http://stackoverflow.com/questions/3802188/git-push-hangs-and-does-nothing
+http://stackoverflow.com/questions/7104182/git-push-halts-on-writing-objects-100
+http://stackoverflow.com/questions/5520329/why-does-a-git-push-just-hang-there-indefinitely-using-mysysgit-1-7-4
 
+10. advise
+http://eax.me/git-commands/
