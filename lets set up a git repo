@@ -1,0 +1,28 @@
+
+it is a strange story...
+after setting up a hg repo on a linux based server throught apache,
+i was asked to set up a git repo for developers needs.
+It is important to point out that I was newbie in git.
+
+It turned out that there are several tools for that:
+1. git-daemon - fast, git protocol
+2. gitweb - with interface and other fancynesses
+
+hg server allows to specify port, ip, user, group, pid file and others.
+same for git-daemon, so i opted to set up a repo using it.
+
+then there were many small and big misunderstandings of this tool in the following order of research:
+1. it uses git:// - its own protocol. Not http:// 
+2. mkdir repo
+3. cd repo
+4. git [--bare] init --shared=true
+(--bare or 7.)
+5. touch git-daemon-export-ok
+6. git daemon \
+--verbose --base-path=/path-to-hg-and-git-repos/git/ \
+--enable=receive-pack --pid-file=/var/run/git-daemon.pid --informative-errors
+7. git checkout -b repo 
+(here new branch 'repo', master remains)
+(use this or --bare when init)
+
+
