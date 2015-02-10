@@ -16,7 +16,7 @@ then there were many small and big misunderstandings of this tool in the followi
 1. it uses git:// - its own protocol. Not http:// 
 2. mkdir repo
 3. cd repo
-4. git [--bare] init --shared=true
+4. git [--bare] init --shared=true (./git/config -> [core] sharedrepository = 1)
 (--bare or 7.)
 5. touch git-daemon-export-ok
 6. git daemon \
