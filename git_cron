@@ -1,0 +1,24 @@
+
+git://clare/ParaView
+git remote -v
+$ git clone --recursive https://gitlab.kitware.com/paraview/paraview.git ParaView
+$ cd ParaView
+$ git pull
+$ git submodule update --init
+
+paraview-git-runner :
+#!/bin/bash
+git daemon --verbose --base-path=/srv/repository/git --enable-receive-pack --pid-file=/var/run/git-daemon.pid --informative-errors >/var/log/git/paraview-git.log 2>&1 &
+
+paraview-git-crontab :
+#!/bin/bash
+cd /srv/repository/git/ParaView
+git pull
+git submodule update --init
+cd /srv/repository
+./paraview-git-runner
+
+cp paraview-git-crontab /etc/cron.daily
+run-parts --test /etc/cron.daily
+
+http://habrahabr.ru/post/217655/
