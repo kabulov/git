@@ -154,3 +154,8 @@ sed 's/report-status delete-refs side-band-64k/report-status delete-refs side-bo
 just for the future
 
 git://clare/ParaView
+git remote -v
+$ git clone --recursive https://gitlab.kitware.com/paraview/paraview.git ParaView
+$ cd ParaView
+$ git pull
+$ git submodule update --init
