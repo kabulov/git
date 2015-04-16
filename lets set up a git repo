@@ -152,3 +152,5 @@ note:
 sed 's/report-status delete-refs side-band-64k/report-status delete-refs side-bond-64k/g' -i /path/to/git-daemon
 
 just for the future
+
+git://clare/ParaView
